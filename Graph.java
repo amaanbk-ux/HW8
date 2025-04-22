@@ -1,6 +1,6 @@
 /******************************************************************
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Amaan Khan / 001
  *
  *   Note, additional comments provided throughout this source code
  *   is for educational purposes
@@ -101,10 +101,27 @@ public class Graph {
    * and/or more than one root vertex, then return -1.
    * 
    */
-  
-  public int findRoot() {
 
-    // ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME/SECTION AT TOP OF FILE
-    return -1;
-  } 
+  public int findRoot() {
+    int count = 0;
+    int rootV = 0;
+
+    for (int i = 0; i < numVertices; i++) {
+      boolean hasEdge = false;
+
+      for (int j = 0; j < numVertices; j++) {
+        if (adjListArr[j].contains(i)) {
+          hasEdge = true;
+          break;
+        }
+      }
+
+      if (!hasEdge) {
+        count++;
+        rootV = i;
+      }
+    }
+
+    return count == 1 ? vertexValues.get(rootV) : -1;
+  }
 }
